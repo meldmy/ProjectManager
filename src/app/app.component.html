@@ -1,3 +1,20 @@
-<h1>
-  {{title}}
-</h1>
+<h1>{{title}}</h1>
+<h2>Active Projects</h2>
+<ul class="projects">
+  <li *ngFor="let project of activeProjects"
+      [class.selected]="project === selectedProject"
+      (click)="onSelect(project)">
+    <span class="badge">{{project.id}}</span> {{project.name}}
+  </li>
+</ul>
+<project-detail [activeProject]="selectedProject"></project-detail>
+
+<!--
+Different local variabls starts with # or ref-
+&lt;!&ndash;<app-click-me></app-click-me>&ndash;&gt;
+<input #phone placeholder="phone number">
+<button (click)="callPhone(phone.value)">Call</button>
+
+&lt;!&ndash; fax refers to the input element; pass its `value` to an event handler &ndash;&gt;
+<input ref-fax placeholder="fax number">
+<button (click)="callFax(fax.value)">Fax</button>-->

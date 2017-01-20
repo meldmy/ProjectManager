@@ -1,0 +1,34 @@
+<input #rolledSection
+      (keyup.enter)="addRolledSection(rolledSection.value)"
+      (blur)="addRolledSection(rolledSection.value); rolledSection.value='' ">
+
+    <button (click)=addRolledSection(rolledSection.value)>Add</button> <br>
+
+<p 	style="color: red; font-size: 120%;" 
+	*ngIf="rolledSectionNames.length >7">
+There are many rolled sections!
+</p>
+
+    <ul><li *ngFor="let rolledSectionName of rolledSectionNames">{{rolledSectionName}}</li></ul>
+
+
+
+<br>
+Examples of user input:
+Print and listen every keystroke:<br>
+<input #boxx (keyup)="0"><br>
+    {{boxx.value}}<br>
+
+Hear every keystroke, but print word just after typed "Enter":<br>
+<input #box (keyup.enter)="onKeyRight(box.value)">
+<p>{{lightValue}}</p>
+
+<b>We use it in EasyFix. After click elsewhere on the page without pressing Enter, the component will update to other part</b><br>
+<input #smartBox
+      (keyup.enter)="update(smartBox.value)"
+      (blur)="update(smartBox.value)">
+
+    <p>{{value}}</p>
+<button (click)="onClickMe()">
+Click me! {{clickedCount}} 
+</button>
